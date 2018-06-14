@@ -1,0 +1,147 @@
+## Variables
+
+```
+LOGIN = `whoami`   # sets the results of executing the whoami command into the variable
+
+echo 'Hello, what is your name?'
+read NAME   # NAME now has the value of what the user typed in
+
+```
+
+
+## EXIT status codes
+
+it is good to have exit code
+
+`EXIT 0`  # success or True
+
+you can put whatever exit code you want, typically numeric I believe
+
+
+## Looping
+
+
+while, until, for looping
+
+
+# while
+
+```
+while [ ... ];
+do
+    ...
+done
+
+```
+
+
+# for
+
+First way:
+
+```
+for (( expr1; expr2; expr3))  # normal expressions for for loops
+    do list;
+done
+
+```
+
+Second way:
+
+```
+for x in word ...;
+    do list;
+done
+
+```
+
+```
+for item in `ls /tmp`
+do
+    echo '$item'
+    sleep 1
+done
+
+```
+
+
+## Math
+
+`echo 1+1 | bc`  # outputs value, binary calculator
+`expr 1 + 1`     # outputs value, shell math
+
+
+## Special Variables
+
+command line arguments, aka positional parameters
+
+```
+script argA argB argC
+
+$0 is the script
+$1 is argA
+$2 is argB
+$3 is argC
+
+$# is the total number of args, not including $0
+$@ expands to a space separated list of all the args
+
+$? is the exit code of the previously executed command
+
+```
+
+
+## Bash Information
+
+informational variables, specific to bash:
+
+```
+HOSTNAME
+PWD
+UID
+BASHPID
+BASH_VERSION
+
+```
+
+* check out the `man x` page for x = 'Special Parameters' or 'Shell Variables' to see more details about these types of vars
+
+
+## Expanding Variables - see slide 46 in ../SlideBook.pdf
+
+
+${NAME:offset:length}  fetches length of characters from NAME starting at offset, like slicing
+
+
+## Using Flags for Parameters
+
+see <getopts> library
+
+Blog post here about getopts: https://rsalveti.wordpress.com/2007/04/03/bash-parsing-arguments-with-getopts/
+
+
+## Functions
+
+```
+sayhello() {            # you can't put parameters in the function
+    echo Hello $1       # '$1' refers to the arguments passed to the function when it is called
+    return 5
+}
+
+sayhello Bob
+
+```
+
+
+# Including Libraries
+
+To include files in a script, as a library of functions, do the following:
+
+```
+source path-to-library
+
+OR
+
+. path-to-library       # short hand uses '.' instead of 'source'
+
+```
