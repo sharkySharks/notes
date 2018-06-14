@@ -1,0 +1,171 @@
+## Comand-line Arguments
+
+```
+from sys import argv  # or sys.argv
+for x in argv:  # argv is a list
+    process each argument
+
+```
+
+`argparse` is the better way to write command-line scripts/apps
+
+
+## Dictionaries
+
+`{}` or `dict()` create dictionaries (objects)
+
+when you iterate over a dictionary, the default is to return the key in the statement `for key in dict`
+for lists and tuples the default is to return the value, not the index
+
+```
+dict_02 = { 'sun': 1, 'mon': 2, 'tues': 3 }
+
+dict_02.keys()      #  returns ['sun', 'mon', 'tues']
+dict_02.values()    #  returns [1, 2, 3]
+dict_02.items()     #  returns [('sun', 1), ('mon', 2), ('tues', 3)]
+
+```
+
+keys can be any immutable type: strings, ints, etc
+you can mix types for keys
+
+
+## Sets
+
+new data type
+
+unordered and contain only unique items
+
+returns unique items in anything iterable
+
+```
+set1 = set('himalayas')      #  returns h,i,m,a,l,a,y,a,s
+set2 = set([1,2,3,4,4,6,3])  #  returns 1,2,3,4,6
+set3 = {12,3,4}
+
+```
+
+you can then use `set.intersection` or `set.union` to get certain types of values from the sets
+
+
+## List Comprehensions
+
+Comprehensions are more performant than for looping
+
+```
+[expression for expr1 in iterable1 [if condition1]
+            for expr2 in iterable2 [if condition2] ... ]
+
+l = [x*2.5 for x in range(5)]                          # l == [0.0, 2.5, 5.0, 7.5, 10.0]
+l = [x*2.5 for x in range(5) if int(x*2.5) == x*2.5]   # l == [0.0, 5.0, 10.0]
+
+```
+
+
+## Dictionary and Set Comprehensions
+
+```
+y = {x for x in xrange(2)}  #  y == set([0, 1])
+z = {x: chr(x+65) for x in xrange(20)}
+
+#  z == {0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E', 5: 'F', 6: 'G', 7: 'H', 8: 'I', 9: 'J', 10: 'K', 11:
+#       'L', 12: 'M', 13: 'N', 14: 'O', 15: 'P', 16: 'Q', 17: 'R', 18: 'S', 19: 'T'}
+
+```
+
+
+## Lambda Functions
+
+anonymous one-line functions
+
+```
+a1 = lambda x:x**2
+a1(5)     #  returns 25
+
+f = lambda x,7:x+y
+f(14,16)  #  returns 26
+
+```
+
+
+# Filter, Map, Reduce
+
+more performant, since it is running in the C backend of the python shell, so much faster!
+
+```
+y = [2,6,9]
+x = map(lambda z:z**2,y)
+x == [4, 36, 81]  #  True
+
+```
+
+
+## yield Statement
+
+-similar to return, but suspends execution of the called function instead of ending the function
+-on the next call to the function, yield picks up where it left off, with all identifier values still holding the same values (unlike a return when it loses its identifiers)
+-basically, it holds state
+
+
+# Generators
+
+-any function that uses a yield statement is a generator
+-it's a laxy iterator
+-called with next()
+
+
+## sys and os Modules
+
+many diverse functions in these large modules
+
+check them out!
+
+
+
+## OOP - check out the slides about classes and OOP topics
+
+`self` is the convention, though it is not a special key word
+
+everything is public on the class
+even if the dunerscores, ie `__init__` , are used to denote a private variable, it is still available publicly
+
+
+# Namespaces and Scoping
+
+everything is an object in Python
+
+same scoping as JS, globals and locals
+
+check out the slides!
+
+
+# Magic Methods
+
+happen behind the scenes ~~~magically~~~
+
+```
+__init__    #  called when an instance is created
+__del__     #  called when an instance is deleted
+__str__     #  called when an instance is printed
+__cmp__     #  compare two things (not in python 3)
+__eq__, __ne__, __lt__, __gt__, __le__, __ge__      #  all of these take the place of __init__
+
+```
+
+check out class examples from the slides!
+
+
+# Inheritance and MRO (Method Resolution Order)
+
+classes inherit methods and attributes from parents
+
+
+## Shebang and Encoding
+
+use `chmod` to make a file an executable
+
+sheband allows you to execute the program as a script
+#!/usr/bin/env python
+
+
+## Books to look into : Dive Into Python

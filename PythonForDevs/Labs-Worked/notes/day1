@@ -1,0 +1,137 @@
+### Python for Devs
+
+## Duck Typing (walks, quacks, etc. then it is a duck)
+
+Floats are double precision <== check out precision
+
+
+## Formatting Data
+
+Strings are immutable <== check out mutability
+
+cannot change original string
+
+
+## Variable naming conventions (PEP 8 - style guide for Python)
+
+variables_lowercase_and_underscored (same for functions, methods, instance variables)
+CONSTANTS_ALL_CAPS
+ClassNamesInCamelCaseWithoutUnderscores
+
+
+## Indentation
+
+indentation is important!
+indicates scope
+just be consistent: 4 for one level, 2 for the next, keep that pattern
+
+
+## Comparisons
+
+== is equals (there is no ===)
+!=
+>
+<
+>=
+<=
+not, and, or (there is no && or ||)
+in, is (`is` is for objects, if they point to the same instance)
+
+
+## Making Decisions
+
+if
+if/else
+if/elif/else
+
+```
+if x == 1 :
+    print "this"
+elif x == 2
+    print "that"
+elif
+    print "what?"
+
+```
+
+
+## While looping
+
+while/else statments
+
+<see d1While.jpg example>
+
+## for Looping
+
+```
+for i in u:
+    print i
+
+```
+
+`i` is the the VALUE, not the index
+
+```
+for (idx, val) in enumerate(u):
+    print "u[{}] = {}".format(idx, val)
+
+```
+
+
+## Input from a user
+
+raw_input(<prompt>)
+
+
+## Basic Operations
+
+# Strings
+len() <==length
+in <== EX: 'red' in 'Bred' is True
+* <== EX: 'Hi'*3 is 'HiHiHi'
+
+# Lists <== like js arrays
+get values from the end of the list with negative indexes
+turn anything iterable into arrays
+
+```
+x = [1,2,3,4]
+x[-1] is 4
+
+list('abc') is ['a', 'b', 'c']
+list(['abc']) is ['abc']
+
+```
+
+range(start, stop, step)
+slicing: list[start:stop:step] # takes first two values in the list
+
+```
+k = range(1,11,2)
+[1, 3, 5, 7, 9]
+
+k[0:2]
+[1,3]
+
+k[::-1] # reverses
+[9,7,5,3,1]
+
+```
+
+adding lists concatenates them
+
+unloading a list
+
+```
+x = [[1,2,3], [4,5,6], [7,8,9]]
+a,b,c,d = x <== a=1, b=2, c=3, d=4
+
+for a,b,c in x:
+    print a,b,c
+
+prints:
+1,2,3
+4,5,6
+7,8,9
+
+```

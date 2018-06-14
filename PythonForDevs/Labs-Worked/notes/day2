@@ -1,0 +1,138 @@
+## Files
+
+Files are iterable!
+
+
+## with Statments
+
+encapsulate opening and reading and writing files using `with` statement
+
+```
+with open('input.file', 'r') as infile, open('output.file', 'w') as outfile
+    for line in infile:  # variables infile and outfile are now available
+        do some processing
+
+```
+
+if either file errors on the `with` line, it will not drop into the with statement
+
+## Strings - slicing
+
+`string[start:stop:step]`
+
+stop is not inclusive
+
+negative slices
+
+```
+x = 'himalayas'
+x[-3] == 'y'  # True
+
+```
+
+
+## Functions and Methods
+
+```
+def testfunc2(a):   # returns one item
+    return a**2
+
+def testfunc1(x):   # returns None  <== always returns something, even if it is None
+    print x
+    print x
+
+```
+
+
+## Reading a Web Pag
+
+```
+variable1 = urllib.urlopen('urlAddress')
+variable1.read() # reads the whole web page!
+
+```
+
+
+## mutability vs immutability
+
+Lists are mutable
+
+
+## Tuple
+
+Tuples are immutable
+
+```
+x = (1,2,3)  <== use () to make tuples
+z = (12,)  <== a single item tuple
+y,m = (4,5)  <== a == 4 && m == 5  # True
+
+```
+
+acts like a list, access vals through brackets and can call a lot of the same funcs as lists
+
+# divmod
+
+returns tuple of division and modulus of values
+
+# zip
+
+```
+x = [1,2,3]
+y = [4,5,6]
+z = zip(x,y)
+z == [(1,4),(2,5), (3,6)]  # True
+
+```
+
+
+## Functions
+
+```
+def func():
+    stuff
+
+```
+
+# globals and locals
+
+can call `globals()` or `locals()` and it will return all the global/local variables
+
+```
+def func():
+    global x  # if x was set in the global scope, then this will point the
+    x = 123   # new value to the global, else it will create a global variable x
+
+```
+
+# Variable Parameter COllectors
+
+`def fn(*varnames):`  <== collects all parameters passed to the func in a tuple
+
+```
+def k(x=None, y=None):
+    print x,y
+
+
+k(y=456)  <== returns None (for x), 456
+
+```
+
+positional arguments have to be given in order
+conditional arguments can be given to the function in any order
+
+`*arg`  <== collects all the positional args (`arg` and `kwarg` can be called anything)
+`**kwargs`  <== collects all the key word args
+
+can also use * when calling a function, whether *args or **kwargs is used
+
+```
+def func(a,b,c,d):
+    do things
+
+variable1 = [1,2,3,4]
+
+func(*variable1)  # maps onto the 4 parameters of the function
+
+```
+
